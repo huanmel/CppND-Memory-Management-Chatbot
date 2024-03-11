@@ -235,12 +235,15 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     
     // rootNode->MoveChatbotHere(std::make_unique<ChatBot>(chatbot_new));
     // rootNode->MoveChatbotHere(std::move(chatbot_new));
-     rootNode->MoveChatbotHere(_chatBot);
-    _chatBot = rootNode->GetChatbot();
+    //  rootNode->MoveChatbotHere(_chatBot);
+    // _chatBot = rootNode->GetChatbot();
 
-    // ChatBot chatbot_new = ChatBot("../images/chatbot.png");
-    // chatbot_new.SetChatLogicHandle(this);
-    // chatbot_new.SetRootNode(rootNode);
+    ChatBot chatbot_new("../images/chatbot.png");
+    chatbot_new.SetChatLogicHandle(this);
+    chatbot_new.SetRootNode(rootNode);
+    rootNode->MoveChatbotHere(std::move(chatbot_new));
+    _chatBot = rootNode->GetChatbot();
+    // _chatBot = &chatbot_new;
 
     // _chatBot->SetRootNode(rootNode);
     //  rootNode->MoveChatbotHere(_chatBot);
