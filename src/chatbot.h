@@ -12,8 +12,8 @@ class ChatBot
 {
 private:
     // data handles (owned)
-    // wxBitmap *_image; // avatar image
-    std::shared_ptr<wxBitmap> _image; // avatar image
+    wxBitmap *_image; // avatar image
+    // std::shared_ptr<wxBitmap> _image; // avatar image
 // make as shared in task 1 because no need to copy its data
 
     // data handles (not owned)
@@ -44,7 +44,7 @@ public:
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
     ChatLogic* GetChatLogicHandle() { return _chatLogic; }
-    wxBitmap *GetImageHandle() { return _image.get(); }
+    wxBitmap *GetImageHandle() { return _image; }
 
     // communication
     void ReceiveMessageFromUser(std::string message);
